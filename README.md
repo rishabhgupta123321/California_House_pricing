@@ -79,6 +79,7 @@ git config --global user.name
 git config --global user.email
 ```
 
+``This configuration we have to do just first time and after that we don't need to do, okay`` 
 <br> 
 
 
