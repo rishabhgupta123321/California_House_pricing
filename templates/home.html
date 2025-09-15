@@ -1,3 +1,25 @@
-<h1>
-    Rishabh Gupta                    
-</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House_Price</title>
+</head> 
+<body>
+    <form action="{{url_for('predict')}}" method="post">
+        <input type="text" name="MedInc" placeholder="MedInc" required>
+        <input type="text" name="HouseAge" placeholder="HouseAge" required>
+        <input type="text" name="AveRooms" placeholder="AveRooms" required>
+        <input type="text" name="AveBedrms" placeholder="AveBedrms" required>
+        <input type="text" name="Population" placeholder="Population" required>
+        <input type="text" name="AveOccup" placeholder="AveOccup" required>
+        <input type="text" name="Latitude" placeholder="Latitude" required>
+        <input type="text" name="Longitude" placeholder="Longitude" required>
+        <button type="submit">Predict</button>
+
+        </form>
+
+        <h2> {{prediction_text}} </h2>>
+        
+</body>
+</html>

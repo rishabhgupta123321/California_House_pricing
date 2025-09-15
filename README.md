@@ -291,5 +291,29 @@ This will give a local server link like:
     - This helps verify whether the model is performing correctly.
 
 --- 
-<br>  
+
+
+<br>
+
+## Project Overview
+
+```
+So far, we have created an API endpoint called `predict_api` that handles POST requests.  
+We used **Postman** to send data to this API, where the input data is processed through **StandardScaler** for normalization.  
+The scaled data is then passed to our **regression model**, which generates and returns the prediction as output.
+```
+
+
+--- 
+<br>
+
+## Next Steps
+
+- Deploy the project to the cloud  
+- Dockerize the application  
+- Integrate **GitHub Actions** for CI/CD pipeline automation
+
+  
+
+
 
