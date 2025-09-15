@@ -1,18 +1,27 @@
-### California_House_pricing Prediction
+# California House Pricing Prediction
+<br>
 
-### Software and Tools Requirements
+## Software and Tools Requirements
 
-1. [Github Account](https://github.com/)
-2. [Heroku Account](https://www.heroku.com/) 
-3. [VSCode IDE](https://code.visualstudio.com/)
-4. [Git CLI](https://git-scm.com/book/en/v2/Getting-Started-The-Command-Line)
+1. [GitHub Account](https://github.com/)  
+2. [Heroku Account](https://www.heroku.com/)  
+3. [VSCode IDE](https://code.visualstudio.com/)  
+4. [Git CLI](https://git-scm.com/book/en/v2/Getting-Started-The-Command-Line)  
+
+---
+<br>
+
+## Create a New Environment  
+
+Open **CMD (Command Prompt) in VsCode terminal** and create a new Python environment.  
+
+👉 If another environment is already active, deactivate it first:  
+```cmd
+deactivate
+```
 
 
-
-Create a new environment on CMD (Command Prompt) terminal
-
-``` If any other environment is already activate, so first deactivate that with command```          **deactivate**   ``` then --     ```
-
+Then create a new one:
 
 ``` 
     For Standard Python Environment:     
@@ -20,9 +29,9 @@ Create a new environment on CMD (Command Prompt) terminal
     For Conda Environment:
         conda create -p venv python=3.13.7 -y  
 ```
+<br>
 
-
-Activate the environment 
+## 🚀 Activate the Environment
 
 ```
     For Standard Python Environment:
@@ -30,84 +39,257 @@ Activate the environment
     For Conda Environment:
         conda activate env       
 ```
+---
 
 <br>
 
-#### Change the Kernal of Linear_Regression_ML_Implementation.ipynb to the Active Environment 
-``` According to Standard Python we have to select env(Python 3.13.7) ```
+## 📒 Jupyter Notebook Kernel Setup
 
+Change the kernel of ``Linear_Regression_ML_Implementation.ipynb`` to the active environment.
 
-<br> 
+For example, if you created a standard Python environment, select:
+```cmd 
+env (Python 3.13.7)
+```
+---
+<br>
 
+## 📦Installation of Libraries
 
-#### Installation of Libraries:
+1. Create a ``requirements.txt`` file and add all the necessary libraries.
 
-1. Create a `requirements.txt` file and add all the necessary libraries.  
-   ⚠️ **Important:** Use `scikit-learn` instead of `sklearn` when installing, but while importing in your Python code, use `sklearn`. This is the convention set by the library maintainers.
+⚠️ Important:
+- When installing, use:
 
-2. Run the following command in the terminal:
-
-```cmd
-pip install -r requirements.txt
+```
+scikit-learn
 ```
 
-```Note: The -r flag tells pip to read from the requirements.txt file.```
+- When importing in Python code, always use:
+
+```python
+import sklearn
+```
+(This is the convention defined by the maintainers.)
 
 
+2. Install the libraries: 
 
-<br> 
- 
+```cmd 
+pip install -r requirements.txt 
+```
 
-### Setting up Git
+| Note: The `-r` flag tells pip to read and install dependencies from the `requirements.txt` file.
 
-To set up Git, you need to configure two things: **username** and **user email**.  
+--- 
+<br>
 
-If you haven’t set these up yet, or want to change them, run:
+## 🔧 Git Configuration
 
-```cmd
+Before pushing code, configure Git with your name and email.
+
+```cmd 
 git config --global user.name "YourName"
 git config --global user.email "YourEmail"
 ```
+### ⚠️ Note:
 
-```
-Note: The email must match the one you used for your GitHub account. You can change the name freely, but changing the email to something not associated with your GitHub account will prevent commits from linking to your profile.
-```
-If you’ve already set them up and just want to check:
+* The email must match your GitHub account email, otherwise commits won’t link to your profile.
 
-```cmd
+* You can freely change your name, but changing the email to something not connected to GitHub breaks commit linking.
+
+To verify:
+```cmd 
 git config --global user.name
 git config --global user.email
 ```
 
-``This configuration we have to do just first time and after that we don't need to do, okay`` 
-<br> 
+| This setup is typically done only once. After that, no need to reconfigure unless you change accounts. 
+
+--- 
+
+<br>
+
+## 📝 Workflow: Commit and Push Code to GitHub
+
+### Step 1: Initialize Git
+```cmd 
+git init 
+``` 
+
+--- 
+
+### Step 2: Add Remote or Clone Repository
+#### Option A: Clone an existing repository
+#### Copy the HTTPS URL from GitHub → run:
+
+```cmd 
+git clone <repo_url>
+```
+
+#### Option B: Add a remote to an existing local repo
+```cmd 
+git remote add origin <repo_url>
+```
+
+| The `.git` at the end of the URL is optional. It’s just a convention.  
+
+--- 
+### Step 3: Verify Remote
+```cmd 
+git remote -v
+```
+
+---
+### Step 4: Add Files to Staging
+- Add a specific file:
+```cmd 
+git add requirements.txt
+```
+* Add all files:
+```cmd 
+git add .
+```
+
+---
+### Step 5: Check Status
+```cmd 
+git status
+``` 
+
+- Modified files → already tracked but changed
+
+- Untracked files → new files not yet added
+
+- Staged files → ready to commit
+
+---
+
+### Step 6: Commit Changes
+```cmd 
+git commit -m "Your commit message"
+```
+---
+### Step 7 (Optional): Rename Branch
+```cmd 
+git branch -M <branch_name>
+``` 
+--- 
+### Step 8: Push Code to GitHub
+```cmd 
+git push -u origin main
+```
+| The `-u` flag sets the upstream branch. After the first push, you can simply use:
+```cmd 
+git push
+```
+Without `-u`, you’d always need to specify `origin main`.
+--- 
+
+### ✅ That’s it! Your code is now committed and pushed to GitHub.
+
+---
+<br>
+
+
+## Git Flow
+
+1. Edit files
+2. Stage changes: (Bring all on the stage)
+```cmd
+   git add .
+```
+3. Commit snapshot locally: (save in local system)
+```
+git commit -m "your message" 
+```
+4. Push to GitHub: (push to github via orgin repo_url)
+```cmd
+git push origin main
+```
+
+--- 
+<br>
+
+## 🚀 Creating a Flask Web Application
+
+
+### Project Structure
+
+- All backend logic is in `app.py`
+
+- Two model-related files are used:
+
+    - `california_housing_model.pkl`
+
+    - `scaling.pkl`
+
+- A folder named `templates/` contains the frontend:
+
+    -  `home.html`
+
+- An API endpoint `/predict_api` is implemented in `app.py`
+
+--- 
+<br>
+
+### Steps to Run the App
+
+#### 1. Check Virtual Environment
+   Make sure you are inside your virtual environment (`env`).
+
+#### 2. Run Flask App
+
+```cmd
+python app.py
+```
+This will give a local server link like:
+`http://127.0.0.1:5000`
+
+#### 3. Access via Browser
+
+- Go to `http://127.0.0.1:5000` → loads `home.html`
+
+- Go to `http://127.0.0.1:5000/predict_api` → calls the prediction API (not fully functional via browser, requires Postman).
 
 
 
+--- 
 
-### Series of Steps need to follow for commit the code to github: 
-1. git init , initialization of the git here 
-2. If i am going to clone the repo then go to the repo on github and click on code and copy from HTTPS by clicking on copy url to clipboard and run a command for that -  `` git clone repourl `` .
-But if i want to add the github repo to push the code without clone , so just copy the github repo. 
-Url and then write command - `` git remote add origin githubrepourl `` 
-`` Note: that after the url if .git come or not that does not matter that is just a convention ``
 
-3.  we also use command -   `` git remote -v `` to just check that our repo url is added properly or not
+## 🔧 Using Postman for Prediction
 
-4. If you don't know then direct you can also go to the documentation of the git CLI and take a look on that
-5. For add the specific file just write the command -    ``git add requirements.txt``
-    or , if you want to add all files in one go, just write the command - `` git add . `` 
-6. Then if you want to see, the status of files , just write - `` git status `` and will able to see that how many are modified and how many are untracked files and how many are on stage .
+#### 1. Download & Open Postman
 
-`The modified files will be, those are added already to git but after that modified they will come in the modified status of git`
+#### 2. Create a New Request
 
-`` So far we have added all the files that need to be commited to the repository `` 
+    - Select POST method
+    - Enter the URL (example)
+    
+    http://127.0.0.1:5000/predict_api  (as a example)
 
-7. Now, we need to do the `commit`, where commit basically pushes the code or files from the out local to the staging environment.
-command is -      `` git commit -m "message" ``
-8.    Optional, but we can do this as well here , in which if we want to change the branch so command will be - `` git branch -M  branchname ``  here branchname is that in which we want to push the code 
+    - Go to Body → raw → JSON
 
-9. Now, we need to push the code that is now in the git or virtual environment that will go to the github repo. so for that command is-   `` git push -u origin main `` 
-`Here -u is for just to remaind the repo url, so that we don't need to write again and again origin and branch and so here then after that writing first time `` git push -u origin main `` then just need to write the `` git push `` , and but if we don't write the -u then we need to write again and again `` git push origin main ``  
+#### 3. Send JSON Data
 
+    Example input:
+    {
+    "data": {
+        "MedInc": 8.3252,
+        "HouseAge": 41.0,
+        "AveRooms": 6.98412698,
+        "AveBedrms": 1.02380952,
+        "Population": 322.0,
+        "AveOccup": 2.55555556,
+        "Latitude": 37.88,
+        "Longitude": -122.23
+    }
+}
+
+#### 4. Click Send
+    - You’ll receive the model’s prediction as output.
+    - This helps verify whether the model is performing correctly.
+
+--- 
+<br>  
 
