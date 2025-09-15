@@ -309,7 +309,7 @@ The scaled data is then passed to our **regression model**, which generates and 
 
 ## Next Steps
 
-- Deploy the project to the cloud  
+- Deploy the project to the cloud using **Heroku**    
 - Dockerize the application  
 - Integrate **GitHub Actions** for CI/CD pipeline automation
 

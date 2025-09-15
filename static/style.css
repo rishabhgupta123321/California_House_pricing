@@ -1,0 +1,73 @@
+/* General page styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Container */
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    text-align: center;
+}
+
+/* Heading */
+.container h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Form styling */
+.prediction-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.prediction-form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border 0.3s;
+}
+
+.prediction-form input:focus {
+    border: 1px solid #74ebd5;
+    outline: none;
+}
+
+/* Button styling */
+.prediction-form button {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #74ebd5;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.prediction-form button:hover {
+    background: #4ea1d3;
+}
+
+/* Result styling */
+.result {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f0f8ff;
+    border-radius: 8px;
+    font-size: 18px;
+    color: #222;
+    font-weight: bold;
+}
