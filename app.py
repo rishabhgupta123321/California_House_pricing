@@ -8,8 +8,8 @@ app = Flask(__name__)
 lin_reg = pickle.load(open('california_housing_model.pkl', 'rb'))
 scaler = pickle.load(open('scaling.pkl', 'rb'))
 @app.route('/')
-def home():
-    return render_template('home.html')
+def home():                                      
+    return render_template('home.html')                                      
 
 
 @app.route('/predict_api', methods=['POST'])

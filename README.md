@@ -307,6 +307,30 @@ The scaled data is then passed to our **regression model**, which generates and 
 --- 
 <br>
 
+
+## Updates Made  
+
+- Added a `/predict` route in **app.py** to:  
+  - Process form inputs  
+  - Scale the data  
+  - Run the regression model  
+  - Return predictions  
+
+- Updated **home.html** with a form to collect user inputs:  
+  - MedInc  
+  - HouseAge  
+  - AveRooms  
+  - AveBedrms  
+  - Population  
+  - AveOccup  
+  - Latitude  
+  - Longitude  
+
+- Displayed the prediction result dynamically on the webpage using a placeholder.  
+---
+<br>
+
+
 ## Next Steps
 
 - Deploy the project to the cloud using **Heroku**    
@@ -314,6 +338,31 @@ The scaled data is then passed to our **regression model**, which generates and 
 - Integrate **GitHub Actions** for CI/CD pipeline automation
 
   
+<br>
+
+---
+
+
+## Deployment on Heroku
+
+- To deploy the app, we will use **Heroku**.  
+- Create a file named **`Procfile`**, which defines the command Heroku will run to start the app.  
+
+- The command to use is: (in Procfile)  
+```
+  gunicorn app:app
+```
+
+
+- Gunicorn (Green Unicorn) is a pure Python HTTP server for WSGI applications.
+
+    - It allows the app to handle multiple requests concurrently by running multiple worker processes.
+
+- Finally, update the `requirements.txt` file and add `gunicorn` so Heroku installs it during deployment.
+
+
+
+
 
 
 

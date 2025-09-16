@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+    <!-- Floating houses in background -->
+    <img src="{{ url_for('static', filename='images/house1.png') }}" class="house house1" alt="House">
+    <img src="{{ url_for('static', filename='images/house2.png') }}" class="house house2" alt="House">
+    <img src="{{ url_for('static', filename='images/house3.png') }}" class="house house3" alt="House">
+
     <div class="container">
         <h1>🏡 House Price Prediction</h1>
         <form action="{{ url_for('predict') }}" method="post" class="prediction-form">
