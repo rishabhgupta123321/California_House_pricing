@@ -333,38 +333,56 @@ The scaled data is then passed to our **regression model**, which generates and 
 
 ## Next Steps
 
-- Deploy the project to the cloud using **Heroku**    
+- Deploy the project to the cloud using **Render**    
 - Dockerize the application  
 - Integrate **GitHub Actions** for CI/CD pipeline automation
 
-  
+---
 <br>
 
----
+## Deployment on Render
 
+To deploy the Flask app, we will use **Render**.
 
-## Deployment on Heroku
-
-- To deploy the app, we will use **Heroku**.  
-- Create a file named **`Procfile`**, which defines the command Heroku will run to start the app.  
-
-- The command to use is: (in Procfile)  
-```
-  gunicorn app:app
-```
-
+### 1. Install Gunicorn
+- Install **Gunicorn** for deployment:
+  ```cmd
+  pip install gunicorn
+  ```
 
 - Gunicorn (Green Unicorn) is a pure Python HTTP server for WSGI applications.
 
     - It allows the app to handle multiple requests concurrently by running multiple worker processes.
 
-- Finally, update the `requirements.txt` file and add `gunicorn` so Heroku installs it during deployment.
+
+### 2. Update requirements.txt  
+
+- Make sure to include all the libraries and packages used in your environment by running:
+
+```cmd
+pip freeze > requirements.txt
+```
+
+- This will:
+
+    - Overwrite the existing `requirements.txt` if it already exists, updating it with all installed packages and versions.
+
+    - Create a new `requirements.txt` if it doesn’t exist.
+
+- Ensure that both Flask and Gunicorn are listed inside `requirements.txt`.
 
 
+### 3. Render vs Heroku
+- Heroku → Requires a `Procfile` because that’s how it knows which command to run to start the app.
+- Render → Does not need a `Procfile`. Instead, you provide the Start Command directly in the dashboard (e.g., `gunicorn app:app`). 
 
+### 4. Steps to Deploy on Render
+1. Push your code to GitHub.
 
+2. Connect your repo to Render.
 
-
-
-
-
+3. In the Render service settings, set the Start Command (usually):
+```
+gunicorn app:app
+```
+4. Render will automatically install all dependencies from `requirements.txt` and run your app.
