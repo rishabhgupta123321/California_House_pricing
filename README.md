@@ -386,3 +386,20 @@ pip freeze > requirements.txt
 gunicorn app:app
 ```
 4. Render will automatically install all dependencies from `requirements.txt` and run your app.
+
+5. In Render, select **Web Service**.  
+   - Make sure your `requirements.txt` file does **not** contain `pywin32` or `colorama`.  
+   - If they exist, uninstall them locally and regenerate the file:  
+     ```cmd
+     pip uninstall pywin32 colorama
+     pip freeze > requirements.txt
+     ```
+   - Push the updated code to GitHub.  
+   - Then follow the Render deployment process.
+---
+<br>
+
+## Deployed Flask Web Application on Render  
+
+Link: [California House Pricing Prediction](https://california-house-pricing-prediction.onrender.com/)
+
