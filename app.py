@@ -1,3 +1,9 @@
+# This is the flask application to deploy the model
+
+# Here we are using Flask framework to deploy our model
+# We are using pickle to load the model
+# so here we are writing the flask code    
+
 import pickle
 from flask import Flask, request, app, jsonify, url_for, render_template  
 import numpy as np
