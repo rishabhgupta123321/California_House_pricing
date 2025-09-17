@@ -17,7 +17,7 @@ COPY . .
 EXPOSE 8000
 
 # Start Flask app with Gunicorn (Render sets $PORT automatically)
-CMD gunicorn --workers=4 --bind 0.0.0.0:$PORT app:app
+CMD gunicorn --bind 0.0.0.0:$PORT app:app
 
 
   
