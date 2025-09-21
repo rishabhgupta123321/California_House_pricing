@@ -4,7 +4,7 @@
 ## Software and Tools Requirements
 
 1. [GitHub Account](https://github.com/)  
-2. [Heroku Account](https://www.heroku.com/)  
+2. [Render Account](https://dashboard.render.com/login)  
 3. [VSCode IDE](https://code.visualstudio.com/)  
 4. [Git CLI](https://git-scm.com/book/en/v2/Getting-Started-The-Command-Line)  
 
@@ -79,7 +79,7 @@ import sklearn
 pip install -r requirements.txt 
 ```
 
-| Note: The `-r` flag tells pip to read and install dependencies from the `requirements.txt` file.
+> Note: The `-r` flag tells pip to read and install dependencies from the `requirements.txt` file.
 
 --- 
 <br>
@@ -104,7 +104,7 @@ git config --global user.name
 git config --global user.email
 ```
 
-| This setup is typically done only once. After that, no need to reconfigure unless you change accounts. 
+> This setup is typically done only once. After that, no need to reconfigure unless you change accounts. 
 
 --- 
 
@@ -132,7 +132,7 @@ git clone <repo_url>
 git remote add origin <repo_url>
 ```
 
-| The `.git` at the end of the URL is optional. It’s just a convention.  
+> The `.git` at the end of the URL is optional. It’s just a convention.  
 
 --- 
 ### Step 3: Verify Remote
@@ -391,7 +391,7 @@ gunicorn app:app
    - Make sure your `requirements.txt` file does **not** contain `pywin32` or `colorama`.  
    - If they exist, uninstall them locally and regenerate the file:  
      ```cmd
-     pip uninstall pywin32 colorama
+     pip uninstall pywin32 
      pip freeze > requirements.txt
      ```
    - Push the updated code to GitHub.  
@@ -402,4 +402,43 @@ gunicorn app:app
 ## Deployed Flask Web Application on Render  
 
 Link: [California House Pricing Prediction](https://california-house-pricing-prediction.onrender.com/)
+
+
+<br>
+
+## Created runtime.txt file
+This file specifies the Python version used for this project.
+
+<br>
+
+## Docker Setup for Render Deployment
+
+This project includes a `Dockerfile` to deploy the Flask app on Render.com.  
+
+- **Base Image:** Python 3.13 slim  
+- **Working Directory:** `/app`  
+- **Dependencies:** Installed from `requirements.txt`  
+- **App Start:** Uses Gunicorn to run the Flask app, listening on the port provided by Render (`$PORT`)  
+
+> Render automatically detects the Dockerfile in the root directory, builds a container image with the specified environment, installs dependencies, and starts the app using the provided Gunicorn command.
+
+<br>
+
+## CI/CD with Github Actions
+This project uses GitHub Actions to automate deployment to Render.com whenever changes are pushed to the `main` branch.
+
+### Workflow Details
+- **Workflow File**: `.github/workflows/deploy.yml`
+- **Trigger**: Runs automatically on every push to the `main` branch.
+- **Steps**: 
+        1. **Checkout repository** – The workflow clones your repository into the GitHub runner.
+        2. **Trigger Render Deploy** – Sends a request to Render’s deploy webhook to automatically deploy the latest version of the app.
+
+- `.github` → Reserved for GitHub configurations.
+- `workflows` → GitHub only scans this folder for workflow YAML files.
+- `deploy.yml` → Contains the instructions for the workflow. The filename can be anything, but the folder structure must be correct.
+
+
+## Security Note
+- The webhook URL used to trigger deployment is stored securely in GitHub Secrets (`RENDER_DEPLOY_HOOK_URL`) and is never exposed publicly.
 

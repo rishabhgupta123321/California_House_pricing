@@ -9,7 +9,7 @@ from flask import Flask, request, app, jsonify, url_for, render_template
 import numpy as np
 import pandas as pd
 
-app = Flask(__name__) 
+app = Flask(__name__)
 ## Load the model
 lin_reg = pickle.load(open('california_housing_model.pkl', 'rb'))
 scaler = pickle.load(open('scaling.pkl', 'rb'))
